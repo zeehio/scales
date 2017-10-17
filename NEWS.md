@@ -1,5 +1,8 @@
 # scales 0.5.0.9000
 
+* `rescale()` and `rescale_mid()` coerce to numeric as a last resort and give
+   a warning, instead of an error (@zeehio, #105).
+
 # scales 0.5.0
 
 * New function `regular_minor_breaks()` calculates minor breaks as a property

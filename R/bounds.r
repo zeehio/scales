@@ -15,6 +15,17 @@ rescale <- function(x, to, from, ...) {
   UseMethod("rescale")
 }
 
+#' @rdname rescale
+#' @export
+rescale.default <- function(x, to = c(0, 1), from = NULL, ...) {
+  warning('Object of class "', paste(class(x), collapse = ", "), '" coerced to numeric')
+  x <- as.numeric(x)
+  if (is.null(from)) {
+    from <- range(x, na.rm = TRUE, finite = TRUE)
+  }
+  rescale(x, to, from, ...)
+}
+
 
 #' @rdname rescale
 #' @export
@@ -69,6 +80,16 @@ rescale.integer64 <- function(x, to = c(0, 1), from = range(x, na.rm = TRUE), ..
 #' rescale_mid(1)
 rescale_mid <- function(x, to, from, mid, ...) {
   UseMethod("rescale_mid")
+}
+
+#' @rdname rescale_mid
+#' @export
+rescale_mid.default <- function(x, to = c(0, 1), from = range(x, na.rm = TRUE), mid = 0, ...) {
+  warning('Object of class "', paste(class(x), collapse = ", "), '" coerced to numeric')
+  x <- as.numeric(x)
+  from <- as.numeric(from)
+  mid <- as.numeric(mid)
+  rescale_mid(x, to, from, mid, ...)
 }
 
 #' @rdname rescale_mid

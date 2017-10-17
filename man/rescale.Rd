@@ -2,6 +2,7 @@
 % Please edit documentation in R/bounds.r
 \name{rescale}
 \alias{rescale}
+\alias{rescale.default}
 \alias{rescale.numeric}
 \alias{rescale.logical}
 \alias{rescale.POSIXt}
@@ -10,6 +11,8 @@
 \title{Rescale continuous vector to have specified minimum and maximum.}
 \usage{
 rescale(x, to, from, ...)
+
+\method{rescale}{default}(x, to = c(0, 1), from = NULL, ...)
 
 \method{rescale}{numeric}(x, to = c(0, 1), from = range(x, na.rm = TRUE,
   finite = TRUE), ...)
