@@ -9,7 +9,7 @@ test_that("rescales values independently", {
 
 test_that("handles units correctly", {
   number_si <- label_number_si(unit = "g")
-  expect_equal(number_si(c(1e-6, 1e-3, 1, 1e3, 1e6)), c("1 \u03bcg", "1 mg", "1 g", "1 kg", "1 Mg"))
+  expect_equal(enc2utf8(number_si(c(1e-6, 1e-3, 1, 1e3, 1e6))), c("1 \u03bcg", "1 mg", "1 g", "1 kg", "1 Mg"))
 })
 
 test_that("handles out-of-range inputs correctly", {
